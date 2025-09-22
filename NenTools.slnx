@@ -6,4 +6,5 @@
   <Project Path="NenTools.PRNG/NenTools.PRNG.csproj" Id="2861a07e-7ed1-4aec-978f-d7401be78b92" />
   <Project Path="NenTools.Textures/NenTools.Textures.csproj" Id="1f49d73d-19d4-472f-a576-e78e704bb0a1" />
   <Project Path="NenTools.Utils/NenTools.Utils.csproj" />
+  <Project Path="ZStd/ImpromptuNinjas.ZStd/ImpromptuNinjas.ZStd.csproj" />
 </Solution>
