@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="NenTools.Cryptography/NenTools.Cryptography.csproj" Id="f20265f0-0623-4c3f-9904-a769482ea248" />
+  <Project Path="NenTools.IO.Compression/NenTools.IO.Compression.csproj" />
+  <Project Path="NenTools.IO.Hashing/NenTools.IO.Hashing.csproj" Id="153f380f-bc76-4f38-81dd-a11e90b29284" />
+  <Project Path="NenTools.IO.Streams/NenTools.IO.Streams.csproj" />
+  <Project Path="NenTools.PRNG/NenTools.PRNG.csproj" Id="2861a07e-7ed1-4aec-978f-d7401be78b92" />
+  <Project Path="NenTools.Textures/NenTools.Textures.csproj" Id="1f49d73d-19d4-472f-a576-e78e704bb0a1" />
+  <Project Path="NenTools.Utils/NenTools.Utils.csproj" />
+</Solution>

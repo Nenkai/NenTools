@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NenTools.IO.Streams\NenTools.IO.Streams.csproj" />
+    <ProjectReference Include="..\NenTools.Utils\NenTools.Utils.csproj" />
+  </ItemGroup>
+
+</Project>
