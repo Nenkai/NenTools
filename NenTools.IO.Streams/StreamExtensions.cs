@@ -15,14 +15,12 @@ public static class StreamExtensions
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(bufferSize, nameof(bufferSize));
 
-        const int BufferSize = 0x40000;
-
         long remSize = size;
         using MemoryOwner<byte> outBuffer = MemoryOwner<byte>.Allocate(bufferSize);
 
         while (remSize > 0)
         {
-            int chunkSize = (int)Math.Min(remSize, BufferSize);
+            int chunkSize = (int)Math.Min(remSize, bufferSize);
             Span<byte> chunk = outBuffer.Span.Slice(0, chunkSize);
 
             inputStream.ReadExactly(chunk);
