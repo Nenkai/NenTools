@@ -16,7 +16,7 @@ public class CompressionStreams
         return type switch
         {
             CompressionType.None => stream,
-            CompressionType.ZStd => new ZStdDecompressStream(stream),
+            CompressionType.ZStd => new ZStdDecompressStream(stream, leaveOpen: true),
             _ => throw new NotSupportedException($"Compression type {type} is not supported."),
         };
     }
