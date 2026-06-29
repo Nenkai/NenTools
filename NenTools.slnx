@@ -9,6 +9,10 @@
     <Project Path="NenTools.IO.Streams/NenTools.IO.Streams.csproj" />
     <Project Path="ZStd/ImpromptuNinjas.ZStd/ImpromptuNinjas.ZStd.csproj" />
   </Folder>
+  <Folder Name="/Reloaded/">
+    <Project Path="NenTools.Reloaded/ScanManager/Interfaces/NenTools.Reloaded.ScanManager.Interfaces.csproj" />
+    <Project Path="NenTools.Reloaded/ScanManager/NenTools.Reloaded.ScanManager.csproj" />
+  </Folder>
   <Project Path="NenTools.Cryptography/NenTools.Cryptography.csproj" />
   <Project Path="NenTools.PRNG/NenTools.PRNG.csproj" />
   <Project Path="NenTools.Textures/NenTools.Textures.csproj" />

@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>Nenkai</Authors>
+    <Title>NenTools.Reloaded.ScanManager</Title>
+    <PackageProjectUrl>https://github.com/Nenkai/NenTools</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Publish.ps1" />
+    <None Remove="BuildLinked.ps1" />
+    <None Remove="Reloaded.Trimming.targets" />
+    <None Remove="Reloaded.Checks.targets" />
+	<Compile Remove="Interfaces\**" />
+	<EmbeddedResource Remove="Interfaces\**" />
+	<None Remove="Interfaces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Preview.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="9.0.3" />
+    <PackageReference Include="PeanutButter.INI" Version="3.0.428" />
+	<PackageReference Include="Reloaded.Memory" Version="9.4.3" />
+	<PackageReference Include="Reloaded.Memory.Sigscan" Version="3.1.8" />
+	<PackageReference Include="Reloaded.Memory.SigScan.ReloadedII.Interfaces" Version="1.2.0" />
+    <PackageReference Include="Reloaded.Mod.Interfaces" Version="2.5.0" ExcludeAssets="runtime" />
+    <PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Interfaces\NenTools.Reloaded.ScanManager.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>
