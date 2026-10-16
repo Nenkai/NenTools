@@ -12,7 +12,7 @@
     <Authors>Nenkai</Authors>
     <Title>NenTools.Reloaded.ScanManager</Title>
     <PackageProjectUrl>https://github.com/Nenkai/NenTools</PackageProjectUrl>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <AssemblyVersion>1.1.0</AssemblyVersion>
     <FileVersion>1.1.0</FileVersion>
   </PropertyGroup>
