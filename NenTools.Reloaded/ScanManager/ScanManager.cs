@@ -9,6 +9,7 @@ using Reloaded.Mod.Interfaces;
 using PeanutButter.INI;
 
 using NenTools.Reloaded.ScanManager.Interfaces;
+using System.Globalization;
 
 namespace NenTools.Reloaded.ScanManager;
 
@@ -118,7 +119,47 @@ public class ScanManager : IScanManager
             return;
         }
 
-        string pattern = patternEntry.Pattern.Trim();
+        string patternString = patternEntry.Pattern.Trim();
+        int idx = 0;
+        string pattern = string.Empty;
+        foreach (var spl in patternString.AsSpan().Split('|'))
+        {
+            switch (idx)
+            {
+                case 0:
+                    pattern = spl.ToString();
+                    if (string.IsNullOrWhiteSpace(pattern))
+                    {
+                        _logger.WriteLine($"[{nameof(ScanManager)}] Signature with name '{id}' in source '{source}' is invalid.", Color.Red);
+                        return;
+                    }
+                    break;
+
+                case 1:
+                    {
+                        ReadOnlySpan<char> range = patternString[spl];
+                        if (range.Length > 0 && range[0] == '+')
+                            range = range[1..];
+
+                        NumberStyles numberStyles = NumberStyles.Number;
+                        if (range.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
+                        {
+                            range = range[2..];
+                            numberStyles = NumberStyles.HexNumber;
+                        }
+
+                        if (!long.TryParse(range, numberStyles, CultureInfo.InvariantCulture, out long offset))
+                        {
+                            _logger.WriteLine($"[{nameof(ScanManager)}] Signature with name '{id}' in source '{source}' has an invalid offset.", Color.Red);
+                            return;
+                        }
+
+                        patternEntry.Offset = offset;
+                    }
+                    break;
+            }
+        }
+
         _scanner.AddMainModuleScan(pattern, (result) =>
         {
             if (!result.Found)
@@ -127,7 +168,7 @@ public class ScanManager : IScanManager
                 return;
             }
 
-            OnPatternFound(patternEntry, BaseAddress.Value + result.Offset, onSuccess);
+            OnPatternFound(patternEntry, BaseAddress.Value + result.Offset + (nint)patternEntry.Offset, onSuccess);
         });
     }
 
